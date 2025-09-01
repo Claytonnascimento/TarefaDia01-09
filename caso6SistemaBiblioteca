@@ -1,0 +1,24 @@
+livros = [
+    ["Dom Casmurro", "Ana", 5],
+    ["1984", "Carlos", 12],
+    ["O Hobbit", "Marina", 3],
+    ["A Revolução dos Bichos", "João", 15],
+    ["Senhora", "Paula", 8]]
+
+livros_mais_7 = [livro for livro in livros if livro[2] > 7]
+
+livro_mais_tempo = max(livros, key=lambda x: x[2])
+
+usuarios = {livro[1] for livro in livros}
+
+media_dias = sum(livro[2] for livro in livros) / len(livros)
+
+print("1. Livros emprestados há mais de 7 dias:")
+for titulo, usuario, dias in livros_mais_7:
+    print(f"   - {titulo} (Usuário: {usuario}, {dias} dias)")
+
+print(f"\n2. Livro emprestado há mais tempo: {livro_mais_tempo[0]} ({livro_mais_tempo[2]} dias)")
+
+print(f"\n3. Usuários com livros emprestados: {usuarios}")
+
+print(f"\n4. Média de dias de empréstimo: {media_dias:.2f}")
